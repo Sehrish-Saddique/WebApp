@@ -40,10 +40,11 @@ class Generator(nn.Module):
         return img
 
 # Load model
-device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+device = torch.device("cpu")
 model = Generator()
-model.load_state_dict(torch.load("digit_generator.pth", map_location=device))
+model.load_state_dict(torch.load("digit_generator.pth", map_location=torch.device('cpu')))
 model.eval()
+
 
 st.title("🖊️ Handwritten Digit Generator")
 digit = st.selectbox("Select a digit to generate (0–9)", list(range(10)))
