@@ -8,7 +8,7 @@ import numpy as np
 
 # Define Generator (Same as training)
 class Generator(nn.Module):
-    def __init__(self, z_dim=20, num_classes=10):
+    def __init__(self, z_dim=18, num_classes=10):
         super().__init__()
         self.label_embedding = nn.Embedding(num_classes, num_classes)
         self.fc = nn.Linear(z_dim + num_classes, 128)
